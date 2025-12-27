@@ -67,7 +67,7 @@ st.markdown("""
 def load_models():
     bagging_model = joblib.load("models/bagging_regressor_model.pkl")
     pipeline = joblib.load("models/real_estate_pipeline.pkl")
-    prophet_models = joblib.load("models/all_prophet_models.pkl"))
+    prophet_models = joblib.load("models/all_prophet_models.pkl")
     return bagging_model, pipeline, prophet_models
 
 bagging_model, pipeline, prophet_models = load_models()
@@ -155,3 +155,4 @@ elif page == "📈 Forecast Future Prices":
         else:
 
             st.warning(f"⚠️ No Prophet model found for **{selected_location}**.")
+
