@@ -65,9 +65,9 @@ st.markdown("""
 # Load models
 @st.cache_resource
 def load_models():
-    bagging_model = joblib.load(os.path.join(DOWNLOADS_PATH,"bagging_regressor_model.pkl"))
-    pipeline = joblib.load(os.path.join(DOWNLOADS_PATH,"real_estate_pipeline.pkl"))
-    prophet_models = joblib.load(os.path.join(DOWNLOADS_PATH,"all_prophet_models.pkl"))
+    bagging_model = joblib.load("models/bagging_regressor_model.pkl")
+    pipeline = joblib.load("models/real_estate_pipeline.pkl")
+    prophet_models = joblib.load("models/all_prophet_models.pkl"))
     return bagging_model, pipeline, prophet_models
 
 bagging_model, pipeline, prophet_models = load_models()
@@ -153,4 +153,5 @@ elif page == "📈 Forecast Future Prices":
             st.line_chart(forecast.set_index("ds")[["yhat"]])
             st.caption(f"🕒 Predicted future trend for **{selected_location}** (next 12 months).")
         else:
+
             st.warning(f"⚠️ No Prophet model found for **{selected_location}**.")
